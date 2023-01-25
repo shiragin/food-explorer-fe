@@ -8,9 +8,7 @@ import axios from 'axios';
 
 export default function Search() {
     const [name, setName] = useState("");
-    const [type, setType] = useState({
-        type: ""
-    });
+    const [type, setType] = useState("")
     const onSearch = async () => {
         const res = await axios.post(
             "http://localhost:8080/countries", { name, type }
