@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
 
-export default function AdvancedSearch() {
-    const [type, setType] = useState({
-        type: ""
-    });
+export default function AdvancedSearch({ type, setType }) {
     const [isAdvancedSearch, setIsAdvancedSearch] = useState(false);
     const onSearchTypeChange = () => {
         setIsAdvancedSearch(!isAdvancedSearch);

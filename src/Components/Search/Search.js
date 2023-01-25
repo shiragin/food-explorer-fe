@@ -7,19 +7,23 @@ import axios from "axios";
 
 
 export default function Search() {
-
+    const [name, setName] = useState("");
+    const [type, setType] = useState({
+        type: ""
+    });
     const onSearch = async () => {
-        const res = await axios.get(
-            "http://localhost:8080/countries"
+        const res = await axios.post(
+            "http://localhost:8080/countries", { name, type }
         )
+
     }
 
     return (
         <div className='container seach-container'>
             <span>Cousine search</span>
             <Form>
-                <BasicSearch />
-                <AdvancedSearch />
+                <BasicSearch name={name} setName={setName} />
+                <AdvancedSearch type={type} setType={setType} />
                 <Button variant="primary" type="button" onClick={onSearch}>
                     Search
                 </Button>
