@@ -1,41 +1,40 @@
+import { Row, Col } from 'react-bootstrap';
 import MapChart from '../Components/Homepage/MapChart';
+
+import RecipeCard from '../Components/RecipeCard/RecipeCard';
+import { useRecipesContext } from '../Context/RecipesContext';
 import '../scss/Home.scss';
 
 function Home() {
-  const countrySwitch = {
-    US: 'American',
-    GB: 'British',
-    CA: 'Canadian',
-    CN: 'Chinese',
-    HR: 'Croatian',
-    NL: 'Dutch',
-    EG: 'Egyptian',
-    FR: 'French',
-    GR: 'Greek',
-    IN: 'Indian',
-    IE: 'Irish',
-    IT: 'Italian',
-    JM: 'Jamaican',
-    JP: 'Japanese',
-    KE: 'Kenyan',
-    MY: 'Malaysian',
-    MX: 'Mexican',
-    MA: 'Moroccan',
-    PL: 'Polish',
-    PT: 'Portuguese',
-    RU: 'Russian',
-    ES: 'Spanish',
-    TH: 'Thai',
-    TN: 'Tunisian',
-    TR: 'Turkish',
-    VN: 'Vietnamese',
-  };
+  const { recipeList, setRecipeList } = useRecipesContext();
+
+  // console.log(recipeList);
+
+  // setRecipeList([recipe, recipe]);
+
+  //     <Container>
+  //     <Row xs={1} md={3} lg={5}>
+  //       {recipeList.map((rec) => {
+  //         console.log(rec);
+  //         return <RecipeCard recipe={rec} />;
+  //       })}
+  //     </Row>
+  //   </Container>
 
   return (
     <div className='main-container'>
       <MapChart />
       <div className='container'>
         <h1 className='title'>Explore the world through food.</h1>
+        <Row xs={1} md={3} lg={5}>
+          {recipeList.map((rec) => {
+            return (
+              <Col>
+                <RecipeCard recipe={rec} />
+              </Col>
+            );
+          })}
+        </Row>
       </div>
     </div>
   );
