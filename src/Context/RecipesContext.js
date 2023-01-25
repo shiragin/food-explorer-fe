@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import axios from 'axios';
 import { useUserContext } from './UserContext';
 
@@ -22,10 +22,13 @@ export default function RecipesContextProvider({ children }) {
       console.error(err);
     }
   }
+  const [recipeList, setRecipeList] = useState([]);
 
   return (
-    <RecipesContext.Provider value={{ getRecipesByCode }}>
+    <RecipesContext.Provider value={{ recipeList, setRecipeList , getRecipesByCode }}>
+      
       {children}
+    
     </RecipesContext.Provider>
   );
 }
