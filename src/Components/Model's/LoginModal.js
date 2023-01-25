@@ -1,8 +1,8 @@
-import axios from 'axios';
-import { useContext, useEffect, useState } from 'react';
-import { Form, Button, Card, Modal } from 'react-bootstrap';
-import { useUserContext } from '../../Context/UserContext';
-import '../../scss/Login.scss';
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { Form, Button, Card, Modal } from "react-bootstrap";
+import { useUserContext } from "../../Context/UserContext";
+import "../../scss/Login.scss";
 
 export default function LoginModal() {
   const {
@@ -12,10 +12,14 @@ export default function LoginModal() {
     setShowLoginModel,
     isLogin,
     setIsLogin,
+    logUser,
+    setLogUser,
+    token,
+    setToken,
   } = useUserContext();
   const [userDetails, setUserDetails] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const handleUserDetails = (e) => {
@@ -31,11 +35,13 @@ export default function LoginModal() {
         password: userDetails.password,
       };
       const res = await axios.post(
-        'http://localhost:8080/users/login',
+        "http://localhost:8080/users/login",
         userInfo
       );
-      if (res.data.ok) {
+      if (res.data.token) {
         setIsLogin(true);
+        setLogUser(res.data.user);
+        setToken(res.data.token);
         setLoad(false);
 
         handleClose();
@@ -51,44 +57,44 @@ export default function LoginModal() {
 
   return (
     <>
-      <Modal.Body className='LoginModalForm'>
-        <Form onSubmit={handleLogIn} id='loginForm'>
+      <Modal.Body className="LoginModalForm">
+        <Form onSubmit={handleLogIn} id="loginForm">
           <Form.Group>
             <Form.Label>Email</Form.Label>
             <Form.Control
-              type='email'
-              placeholder='Email'
-              className='LoginInput'
+              type="email"
+              placeholder="Email"
+              className="LoginInput"
               required
-              id='email'
+              id="email"
               onChange={handleUserDetails}
             />
           </Form.Group>
           <Form.Group>
             <Form.Label>Password</Form.Label>
             <Form.Control
-              type='password'
-              placeholder='Password'
-              className='LoginInput'
+              type="password"
+              placeholder="Password"
+              className="LoginInput"
               required
               min={6}
-              id='password'
+              id="password"
               onChange={handleUserDetails}
             />
           </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant='secondary' onClick={handleClose}>
+        <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
         <Button
-          variant='primary'
-          type='submit'
-          form='loginForm'
+          variant="primary"
+          type="submit"
+          form="loginForm"
           disabled={load}
         >
-          {load ? 'Loading' : 'Login'}
+          {load ? "Loading" : "Login"}
         </Button>
       </Modal.Footer>
     </>
