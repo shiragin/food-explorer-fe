@@ -20,64 +20,72 @@ export default function MainNavbar() {
   const handleLogOut = () => {};
 
   return (
-    <Navbar bg='light' expand='lg'>
+    <Navbar bg='light' expand='sm'>
       <Container className='nav'>
         <LinkContainer to='/'>
           <Navbar.Brand className='logo'>
             Food <span>Explorer</span>
           </Navbar.Brand>
         </LinkContainer>
-        <div>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='me-auto'>
-              <LinkContainer to='/search'>
-                <Nav.Link>Search</Nav.Link>
-              </LinkContainer>
-              {isLogin && (
-                <NavDropdown title='User' id='basic-nav-dropdown'>
+        {/* <div> */}
+        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar.Collapse id='basic-navbar-nav'>
+          <Nav className='me-auto'>
+            <LinkContainer to='/search'>
+              <Nav.Link>Search</Nav.Link>
+            </LinkContainer>
+            {isLogin ? (
+              <Button
+                className='login'
+                variant='primary'
+                onClick={handleLogOut}
+              >
+                Logout
+              </Button>
+            ) : (
+              <Button
+                variant='primary'
+                className='login'
+                onClick={() => {
+                  setShowLoginModel(true);
+                }}
+              >
+                Log In
+              </Button>
+            )}
+            {isLogin && (
+              <NavDropdown title='User' id='basic-nav-dropdown'>
+                <NavDropdown.Item>
                   <LinkContainer to='/myProfile'>
                     <Nav.Link>My profile</Nav.Link>
                   </LinkContainer>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
                   <LinkContainer to='/myRecipes'>
                     <Nav.Link>My Recipes</Nav.Link>
                   </LinkContainer>
-                </NavDropdown>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-          <Modal
-            show={showLoginModel}
-            onHide={handleClose}
-            keyboard={false}
-            centered={true}
-            backdrop='static'
-          >
-            <Switch
-              falseName={'Log In'}
-              trueName={'Sign Up'}
-              state={showSignUp}
-              setState={setShowSignUp}
-            />
+                </NavDropdown.Item>
+              </NavDropdown>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+        <Modal
+          show={showLoginModel}
+          onHide={handleClose}
+          keyboard={false}
+          centered={true}
+          backdrop='static'
+        >
+          <Switch
+            falseName={'Log In'}
+            trueName={'Sign Up'}
+            state={showSignUp}
+            setState={setShowSignUp}
+          />
 
-            {showSignUp ? <SignUpModal /> : <LoginModal />}
-          </Modal>{' '}
-          {isLogin ? (
-            <Button className='login' variant='primary' onClick={handleLogOut}>
-              Logout
-            </Button>
-          ) : (
-            <Button
-              variant='primary'
-              className='login'
-              onClick={() => {
-                setShowLoginModel(true);
-              }}
-            >
-              Log In
-            </Button>
-          )}
-        </div>
+          {showSignUp ? <SignUpModal /> : <LoginModal />}
+        </Modal>{' '}
+        {/* </div> */}
       </Container>
     </Navbar>
   );
