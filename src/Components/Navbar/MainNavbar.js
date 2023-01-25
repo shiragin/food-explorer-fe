@@ -1,88 +1,83 @@
-import React, { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { LinkContainer } from "react-router-bootstrap";
-import { useUserContext } from "../../Context/UserContext";
-import LoginModal from "../../Model's/LoginModal";
-import SignUpModal from "../../Model's/SignUpModal";
-import Switch from "../Switch/Switch";
+import React, { useState } from 'react';
+import { Button, Modal } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { LinkContainer } from 'react-router-bootstrap';
+import { useUserContext } from '../../Context/UserContext';
+import LoginModal from "../Model's/LoginModal";
+import SignUpModal from "../Model's/SignUpModal";
+import Switch from '../Switch/Switch';
+import '../../scss/Navbar.scss';
 
 export default function MainNavbar() {
-  const {
-    load,
-    setLoad,
-    showLoginModel,
-    setShowLoginModel,
-    isLogin,
-    setIsLogin,
-  } = useUserContext();
+  const { showLoginModel, setShowLoginModel, isLogin } = useUserContext();
 
   const [showSignUp, setShowSignUp] = useState(false);
 
-
   const handleClose = () => setShowLoginModel(false);
-  const handleLogOut =()=>{
-
-  }
+  const handleLogOut = () => {};
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <LinkContainer to="/">
-          <Navbar.Brand>Food Explorer</Navbar.Brand>
+    <Navbar bg='light' expand='lg'>
+      <Container className='nav'>
+        <LinkContainer to='/'>
+          <Navbar.Brand className='logo'>
+            Food <span>Explorer</span>
+          </Navbar.Brand>
         </LinkContainer>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <LinkContainer to="/">
-              <Nav.Link>Home</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/search">
-              <Nav.Link>Search</Nav.Link>
-            </LinkContainer>
-            {isLogin && <NavDropdown title="User" id="basic-nav-dropdown">
-              <LinkContainer to="/myProfile">
-                <Nav.Link>My profile</Nav.Link>
+        <div>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+          <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className='me-auto'>
+              <LinkContainer to='/search'>
+                <Nav.Link>Search</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/myRecipes">
-                <Nav.Link>My Recipes</Nav.Link>
-              </LinkContainer>
-            </NavDropdown>}
-          </Nav>
+              {isLogin && (
+                <NavDropdown title='User' id='basic-nav-dropdown'>
+                  <LinkContainer to='/myProfile'>
+                    <Nav.Link>My profile</Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer to='/myRecipes'>
+                    <Nav.Link>My Recipes</Nav.Link>
+                  </LinkContainer>
+                </NavDropdown>
+              )}
+            </Nav>
+          </Navbar.Collapse>
           <Modal
             show={showLoginModel}
             onHide={handleClose}
             keyboard={false}
             centered={true}
-            backdrop="static"
+            backdrop='static'
           >
             <Switch
-              falseName={"Login"}
-              trueName={"SignIn"}
+              falseName={'Log In'}
+              trueName={'Sign Up'}
               state={showSignUp}
               setState={setShowSignUp}
             />
 
             {showSignUp ? <SignUpModal /> : <LoginModal />}
-          </Modal>{" "}
+          </Modal>{' '}
           {isLogin ? (
-            <Button variant="primary" onClick={handleLogOut}>
+            <Button className='login' variant='primary' onClick={handleLogOut}>
               Logout
             </Button>
           ) : (
             <Button
-              variant="primary"
+              variant='primary'
+              className='login'
               onClick={() => {
                 setShowLoginModel(true);
               }}
             >
-              Login
+              Log In
             </Button>
           )}
-        </Navbar.Collapse>
+        </div>
       </Container>
     </Navbar>
   );

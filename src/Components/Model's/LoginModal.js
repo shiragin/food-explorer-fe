@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
-import { Button, Card, Modal } from 'react-bootstrap';
-import { useUserContext } from '../Context/UserContext';
+import { Form, Button, Card, Modal } from 'react-bootstrap';
+import { useUserContext } from '../../Context/UserContext';
+import '../../scss/Login.scss';
 
 export default function LoginModal() {
   const {
@@ -50,29 +51,32 @@ export default function LoginModal() {
 
   return (
     <>
-      <Modal.Header></Modal.Header>
       <Modal.Body className='LoginModalForm'>
-        <form onSubmit={handleLogIn} id='loginForm'>
-          <b>Email</b>{' '}
-          <input
-            type='email'
-            placeholder='Email'
-            className='LoginInput'
-            required
-            id='email'
-            onChange={handleUserDetails}
-          />
-          <b>Password</b>{' '}
-          <input
-            type='password'
-            placeholder='Password'
-            className='LoginInput'
-            required
-            min={6}
-            id='password'
-            onChange={handleUserDetails}
-          />
-        </form>
+        <Form onSubmit={handleLogIn} id='loginForm'>
+          <Form.Group>
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type='email'
+              placeholder='Email'
+              className='LoginInput'
+              required
+              id='email'
+              onChange={handleUserDetails}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type='password'
+              placeholder='Password'
+              className='LoginInput'
+              required
+              min={6}
+              id='password'
+              onChange={handleUserDetails}
+            />
+          </Form.Group>
+        </Form>
       </Modal.Body>
       <Modal.Footer>
         <Button variant='secondary' onClick={handleClose}>
