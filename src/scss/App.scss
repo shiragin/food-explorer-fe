@@ -1,0 +1,22 @@
+@import 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+body {
+  font-family: $font-stack;
+  line-height: 1.5;
+  color: $dark-color;
+  background-color: $light-color;
+}
