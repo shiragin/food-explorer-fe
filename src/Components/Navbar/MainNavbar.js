@@ -8,6 +8,7 @@ import { LinkContainer } from "react-router-bootstrap";
 
 
 export default function MainNavbar() {
+  
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -23,6 +24,7 @@ export default function MainNavbar() {
             <LinkContainer to="/search">
               <Nav.Link>Search</Nav.Link>
             </LinkContainer>
+            
             <NavDropdown title="User" id="basic-nav-dropdown">
             <LinkContainer to="/myProfile">
               <Nav.Link>My profile</Nav.Link>
@@ -31,6 +33,7 @@ export default function MainNavbar() {
               <Nav.Link>My Recipes</Nav.Link>
             </LinkContainer>
             </NavDropdown>
+
             <LinkContainer to="/logIn">
               <Nav.Link>LogIn</Nav.Link>
             </LinkContainer>
