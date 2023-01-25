@@ -7,6 +7,8 @@ import MainNavbar from './Components/Navbar/MainNavbar';
 import Search from './Components/Search/Search';
 import RecipePage from './Components/RecipePage/RecipePage';
 import Results from './Pages/Results';
+import MyProfile from './Pages/MyProfile';
+import MyRecipes from './Pages/MyRecipes';
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/search' element={<Results />} />
-            <Route path='/RecipePage/:id' element={<RecipePage />} />
+            <Route path='/my-profile' element={<MyProfile />} />
+            <Route path='/my-recipes' element={<MyRecipes />} />
+            <Route path='/recipe/:id' element={<RecipePage />} />
           </Routes>
         </BrowserRouter>
       </RecipesContextProvider>

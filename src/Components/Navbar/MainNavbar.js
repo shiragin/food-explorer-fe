@@ -38,12 +38,12 @@ export default function MainNavbar() {
               <Nav.Link>Search</Nav.Link>
             </LinkContainer>
             {isLogin && (
-              <LinkContainer to='/myProfile'>
+              <LinkContainer to='/my-profile'>
                 <Nav.Link>Profile</Nav.Link>
               </LinkContainer>
             )}
             {isLogin && (
-              <LinkContainer to='/myRecipes'>
+              <LinkContainer to='/my-recipes'>
                 <Nav.Link>Recipes</Nav.Link>
               </LinkContainer>
             )}

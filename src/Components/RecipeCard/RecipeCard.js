@@ -5,6 +5,7 @@ import '../../scss/RecipeCard.scss';
 import { useRecipesContext } from '../../Context/RecipesContext';
 
 export default function RecipeCard({ recipe }) {
+  const navigate = useNavigate();
   return (
     <Col>
       <Card>
@@ -14,6 +15,7 @@ export default function RecipeCard({ recipe }) {
           <Button
             variant='primary'
             onClick={() => {
+              navigate(`/recipe/${recipe.idMeal}`);
               console.log(recipe.idMeal);
             }}
           >

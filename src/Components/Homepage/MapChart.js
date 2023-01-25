@@ -71,40 +71,40 @@ export default function MapChart() {
           {({ geographies }) =>
             geographies.map((geo) => {
               return (
-                <OverlayTrigger
+                // <OverlayTrigger
+                //   key={geo.rsmKey}
+                //   placement='top'
+                //   // delay={{ hide: 100 }}
+                //   overlay={renderTooltip}
+                // >
+                <Geography
                   key={geo.rsmKey}
-                  placement='right'
-                  // delay={{ hide: 100 }}
-                  overlay={renderTooltip}
-                >
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    onMouseEnter={() => {
-                      setContent(`${geo.properties.continent}`);
-                    }}
-                    onMouseLeave={() => {
-                      setContent('');
-                    }}
-                    stroke='#003a4d'
-                    strokeWidth={0.2}
-                    style={{
-                      default: {
-                        fill: '#EEE',
-                        outline: 'none',
-                      },
-                      hover: {
-                        fill: '#07814a',
-                        outline: 'none',
-                      },
-                      pressed: {
-                        fill: '#07814a',
-                        outline: 'none',
-                      },
-                    }}
-                    onClick={(e) => MapClickHandler(geo.properties.continent)}
-                  />
-                </OverlayTrigger>
+                  geography={geo}
+                  onMouseEnter={() => {
+                    setContent(`${geo.properties.continent}`);
+                  }}
+                  onMouseLeave={() => {
+                    setContent('');
+                  }}
+                  stroke='#003a4d'
+                  strokeWidth={0.2}
+                  style={{
+                    default: {
+                      fill: '#EEE',
+                      outline: 'none',
+                    },
+                    hover: {
+                      fill: '#07814a',
+                      outline: 'none',
+                    },
+                    pressed: {
+                      fill: '#07814a',
+                      outline: 'none',
+                    },
+                  }}
+                  onClick={(e) => MapClickHandler(geo.properties.continent)}
+                />
+                // </OverlayTrigger>
               );
             })
           }

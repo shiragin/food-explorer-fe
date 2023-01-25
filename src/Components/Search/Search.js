@@ -22,7 +22,7 @@ export default function Search() {
   return (
     <>
       <div className='page-title'>Find your next favourite meal</div>
-      <Form>
+      <div className='search-form'>
         <BasicSearch name={name} setName={setName} />
         <AdvancedSearch country={country} setCountry={setCountry} />
 
@@ -34,7 +34,7 @@ export default function Search() {
         >
           Search
         </Button>
-      </Form>
+      </div>
     </>
   );
 }
