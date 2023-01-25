@@ -7,8 +7,19 @@ export function useUserContext() {
 
 export default function UserContextProvider({ children }) {
   const [load, setLoad] = useState(false);
+  const [token, setToken] = useState("");
+
   const [showLoginModel, setShowLoginModel] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const [logUser, setLogUser] = useState({
+    email: "",
+    firstName: "",
+    lastName: "",
+    password: "",
+    role: "",
+    savedrecipes: [],
+    id: "",
+  });
 
   return (
     <UserContext.Provider
@@ -19,6 +30,8 @@ export default function UserContextProvider({ children }) {
         setShowLoginModel,
         isLogin,
         setIsLogin,
+        logUser,
+        setLogUser,token, setToken,
       }}
     >
       {children}
