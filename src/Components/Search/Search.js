@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import AdvancedSearch from "./AdvansedSearch";
-import BasicSearch from "./BasicSearch";
-import axios from "axios";
-
+import AdvancedSearch from './AdvansedSearch';
+import BasicSearch from './BasicSearch';
+import '../../scss/Search.scss';
 
 export default function Search() {
     const [name, setName] = useState("");
@@ -19,15 +18,21 @@ export default function Search() {
     }
 
     return (
-        <div className='container seach-container'>
-            <span>Cousine search</span>
+        <>
+            <div className='page-title'>Find your next favourite meal</div>
             <Form>
                 <BasicSearch name={name} setName={setName} />
                 <AdvancedSearch type={type} setType={setType} />
-                <Button variant="primary" type="button" onClick={onSearch}>
+
+                <Button
+                    variant='primary'
+                    type='button'
+                    className='search-button'
+                    onClick={onSearch}
+                >
                     Search
                 </Button>
             </Form>
-        </div>
+        </>
     )
 }

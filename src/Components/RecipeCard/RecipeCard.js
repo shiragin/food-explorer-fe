@@ -6,11 +6,11 @@ import { useRecipesContext } from '../../Context/RecipesContext';
 
 export default function RecipeCard({ recipe }) {
   return (
-    <Card>
-      <Card.Img variant='top' src={recipe.strMealThumb} alt='recipePic' />
-      <Card.Header as='h5'>{recipe.strMeal}</Card.Header>
-      <Card.Body>
-        <Card.Footer>
+    <Col>
+      <Card>
+        <Card.Img variant='top' src={recipe.strMealThumb} alt='recipePic' />
+        <Card.Body>
+          <Card.Text>{recipe.strMeal}</Card.Text>
           <Button
             variant='primary'
             onClick={() => {
@@ -19,8 +19,8 @@ export default function RecipeCard({ recipe }) {
           >
             See More
           </Button>{' '}
-        </Card.Footer>
-      </Card.Body>
-    </Card>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 }

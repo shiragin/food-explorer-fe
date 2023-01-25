@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 // import WorldMap from './world-countries-sans-antarctica.json';
 import { useRecipesContext } from '../../Context/RecipesContext';
@@ -12,7 +13,9 @@ export default function MapChart() {
   const [content, setContent] = useState('');
   // const [geoUrl, setGeoUrl] = useState(ContMap);
 
-  const { getRecipesByCode } = useRecipesContext();
+  const { getRecipesByCode, setRecipeList } = useRecipesContext();
+
+  const navigate = useNavigate();
 
   function getCountryCodes(continent) {
     switch (continent) {
@@ -44,7 +47,9 @@ export default function MapChart() {
   async function MapClickHandler(continent) {
     const countries = getCountryCodes(continent);
     const res = await getRecipesByCode(countries);
-    // console.log(res);
+    console.log(res);
+    if (res) setRecipeList(res);
+    navigate('/search');
   }
 
   const renderTooltip = (props) => (

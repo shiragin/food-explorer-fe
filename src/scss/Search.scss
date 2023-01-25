@@ -1,0 +1,58 @@
+@import 'variables';
+
+.page-title {
+  margin: 2.4rem 0 2rem;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.search-container {
+  form {
+    display: flex;
+    flex-direction: column;
+    .form-label {
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+
+    input {
+      font-size: 1.1rem;
+    }
+    .form-check-input:checked {
+      background-color: $primary-color;
+      box-shadow: 0 0 0 0.2rem rgba(7, 129, 74, 0.4);
+    }
+    .form-control,
+    .form-select {
+      padding: 0.5rem 1rem;
+      font-size: 1.1rem;
+      // margin-bottom: 1rem;
+
+      option {
+        margin-bottom: 0.4rem;
+      }
+    }
+  }
+  button.search-button {
+    background-color: $primary-color;
+    color: #fff !important;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: $dark-color;
+    margin-top: 1rem;
+    align-self: flex-end;
+    &:active,
+    &:hover,
+    &:focus {
+      background-color: $primary-color;
+      color: #fff;
+      box-shadow: 0 0 0 0.2rem rgba(7, 129, 74, 0.4);
+    }
+  }
+}
+
+.results {
+  margin-top: 3rem;
+}

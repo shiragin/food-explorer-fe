@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
 export default function AdvancedSearch({ type, setType }) {
@@ -12,7 +12,7 @@ export default function AdvancedSearch({ type, setType }) {
                 <Form.Check onChange={onSearchTypeChange} value={isAdvancedSearch} type="checkbox" label="Advanced search" />
             </Form.Group>
             {isAdvancedSearch && <div>
-                <Form.Select htmlSize="5" aria-label="Search" value={type.type} onChange={e => setType(e.target.value)}>
+                <Form.Select htmlSize="5" aria-label="Search" value={type.type} onChange={e => setType({ type: e.target.value })}>
                     <option value={"US"}>American</option>
                     <option value={"GB"}>British</option>
                     <option value={"CA"}>Canadian</option>
