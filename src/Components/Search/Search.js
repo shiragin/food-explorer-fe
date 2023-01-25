@@ -5,6 +5,7 @@ import { useRecipesContext } from '../../Context/RecipesContext';
 import AdvancedSearch from './AdvansedSearch';
 import BasicSearch from './BasicSearch';
 import '../../scss/Search.scss';
+import axios from 'axios';
 
 export default function Search() {
   const { getRecipesByCode, setRecipeList } = useRecipesContext();

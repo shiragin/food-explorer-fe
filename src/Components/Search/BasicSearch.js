@@ -8,7 +8,7 @@ export default function BasicSearch({ name, setName }) {
         <Form.Label>Search by name</Form.Label>
         <Form.Control
           type='text'
-          placeholder='Type dish name '
+          placeholder='Type dish name'
           value={name}
           onChange={(e) => setName(e.target.value)}
         />

@@ -1,0 +1,16 @@
+
+.TextPart{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    padding-left: 15px;
+    font-size: 1rem;
+font-weight: 550;
+}
+.MediaPart{
+    width: 50%;
+
+}
+.recipePageBody{
+    display: flex;
+}
