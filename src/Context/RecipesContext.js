@@ -12,9 +12,10 @@ export default function RecipesContextProvider({ children }) {
   async function getRecipesByCode(codes) {
     console.log('CODES', codes);
     try {
-      const res = await axios.get(``, {
-        codes,
+      const res = await axios.get(`http://localhost:8080/recipes/`, {
+        params: { strArea: codes },
       });
+
       if (res?.data?.ok) {
         return res.data;
       }

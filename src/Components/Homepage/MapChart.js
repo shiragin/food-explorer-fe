@@ -44,7 +44,7 @@ export default function MapChart() {
   async function MapClickHandler(continent) {
     const countries = getCountryCodes(continent);
     const res = await getRecipesByCode(countries);
-    // console.log(res);
+    console.log(res);
   }
 
   const renderTooltip = (props) => (
