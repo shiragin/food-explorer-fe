@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import AdvancedSearch from './AdvansedSearch';
 import BasicSearch from './BasicSearch';
 import '../../scss/Search.scss';
+import axios from 'axios';
 
 export default function Search() {
     const [name, setName] = useState("");
