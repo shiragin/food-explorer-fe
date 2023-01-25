@@ -1,0 +1,71 @@
+@import 'variables';
+
+.modal-content {
+  font-family: 'Open Sans';
+  min-height: 300px;
+  padding: 1.6rem 2rem;
+
+  .modal-header {
+    padding: 0;
+  }
+
+  .react-switch {
+    &-button {
+      // background-color: $primary-color;
+      // span {
+      //   b {
+      //     color: #fff;
+      //   }
+      // }
+    }
+    &-labels {
+      font-weight: 700;
+      font-size: 1.2rem;
+      // color: #fff;
+    }
+  }
+
+  .modal-body {
+    padding: 0;
+    margin-top: 1.6rem;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      label {
+        font-size: 1.2rem;
+      }
+
+      input {
+        font-size: 1.2rem;
+        padding: 0.4rem 1rem;
+        border: 0.05rem solid $primary-color;
+
+        &:active,
+        &:focus,
+        &:focus-visible {
+          box-shadow: 0 0 0 0.2rem rgba(7, 129, 74, 0.4);
+        }
+      }
+    }
+  }
+
+  .modal-footer {
+    margin-top: 2rem;
+    padding: 0;
+    border-top: none;
+    gap: 0.5rem;
+    button {
+      background-color: $primary-color;
+      font-size: 1.2rem;
+      border: none !important;
+      // box-shadow: 0 0 0 0.2rem rgba(7, 129, 74, 0.4);
+      &:active,
+      &:hover {
+        box-shadow: 0 0 0 0.2rem rgba(7, 129, 74, 0.4);
+      }
+    }
+  }
+}

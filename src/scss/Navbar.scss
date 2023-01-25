@@ -1,0 +1,36 @@
+@import 'variables';
+
+.container.nav {
+  width: 100%;
+  justify-content: space-between;
+  .logo {
+    color: $primary-color;
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    span {
+      color: $dark-color;
+    }
+  }
+
+  .navbar-collapse {
+    align-items: center;
+    justify-content: flex-end;
+    width: auto;
+
+    .navbar-nav {
+    }
+  }
+
+  button.login {
+    background-color: $primary-color;
+    margin-left: 1rem;
+    box-shadow: none;
+    border-color: #07814a;
+
+    &:active,
+    &:hover {
+      box-shadow: 0 0 0 0.2rem rgba(7, 129, 74, 0.4);
+    }
+  }
+}

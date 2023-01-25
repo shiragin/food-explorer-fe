@@ -1,23 +1,22 @@
-import React from "react";
-import "./switch.css";
+import React from 'react';
+import './switch.css';
 
-const Switch = ({falseName,trueName,state,setState}) => {
-
+const Switch = ({ falseName, trueName, state, setState }) => {
   return (
-    <label className="react-switch">
+    <label className='react-switch'>
       <input
         checked={state}
         onChange={() => setState(!state)}
-        className="react-switch-checkbox"
-        type="checkbox"
+        className='react-switch-checkbox'
+        type='checkbox'
       />
-      <div className="react-switch-button" />
-      <div className="react-switch-labels">
+      <div className='react-switch-button' />
+      <div className='react-switch-labels'>
         <span>
-          <b>{falseName}</b>{" "}
+          <div>{falseName}</div>{' '}
         </span>
         <span>
-          <b> {trueName}</b>{" "}
+          <div> {trueName}</div>{' '}
         </span>
       </div>
     </label>

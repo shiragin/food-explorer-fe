@@ -1,12 +1,52 @@
 import React, { useState } from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
-import WorldMap from './world-countries-sans-antarctica.json';
+// import WorldMap from './world-countries-sans-antarctica.json';
+import { useRecipesContext } from '../../Context/RecipesContext';
+import ContMap from './world-continents.json';
+// import Africa from './africa.json';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
-const geoUrl = WorldMap;
+const geoUrl = ContMap;
 
 export default function MapChart() {
   const [content, setContent] = useState('');
+  // const [geoUrl, setGeoUrl] = useState(ContMap);
+
+  const { getRecipesByCode } = useRecipesContext();
+
+  function getCountryCodes(continent) {
+    switch (continent) {
+      case 'North America':
+        return ['US', 'CA', 'JM', 'MX'];
+      case 'Europe':
+        return ['GB', 'HR', 'NL', 'FR', 'GR', 'IE', 'IT', 'PT'];
+      case 'Asia':
+        return [
+          'CN',
+          'EG',
+          'IN',
+          'JP',
+          'MY',
+          'MA',
+          'RU',
+          'TH',
+          'TN',
+          'TR',
+          'VN',
+        ];
+      case 'Africa':
+        return ['KE'];
+      default:
+        return 'Invalid continent';
+    }
+  }
+
+  async function MapClickHandler(continent) {
+    const countries = getCountryCodes(continent);
+    const res = await getRecipesByCode(countries);
+    // console.log(res);
+  }
+
   const renderTooltip = (props) => (
     <Tooltip id='button-tooltip' {...props}>
       {content && `${content}`}
@@ -36,7 +76,7 @@ export default function MapChart() {
                     key={geo.rsmKey}
                     geography={geo}
                     onMouseEnter={() => {
-                      setContent(`${geo.properties.name}`);
+                      setContent(`${geo.properties.continent}`);
                     }}
                     onMouseLeave={() => {
                       setContent('');
@@ -57,7 +97,7 @@ export default function MapChart() {
                         outline: 'none',
                       },
                     }}
-                    onClick={() => console.log(geo.properties)}
+                    onClick={(e) => MapClickHandler(geo.properties.continent)}
                   />
                 </OverlayTrigger>
               );
