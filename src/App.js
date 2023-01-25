@@ -4,6 +4,7 @@ import RecipesContextProvider from './Context/RecipesContext';
 import Home from './Pages/Home';
 import './scss/App.scss';
 import MainNavbar from './Components/Navbar/MainNavbar';
+import Search from './Components/Search/Search';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
           <MainNavbar />
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path="/search" element={<Search />} />
           </Routes>
+
         </BrowserRouter>
       </RecipesContextProvider>
     </UserContextProvider>
