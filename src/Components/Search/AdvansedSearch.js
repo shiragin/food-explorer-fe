@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
-export default function AdvancedSearch() {
-  const [type, setType] = useState('');
+export default function AdvancedSearch({ country, setCountry }) {
   const [isAdvancedSearch, setIsAdvancedSearch] = useState(false);
+
   const onSearchTypeChange = () => {
     setIsAdvancedSearch(!isAdvancedSearch);
   };
+
   return (
     <Form>
       <Form.Group className='mb-3 mt-3' controlId='formBasicCheckbox'>
@@ -23,8 +24,8 @@ export default function AdvancedSearch() {
           <Form.Select
             htmlSize='5'
             aria-label='Search'
-            value={type}
-            onChange={(e) => setType(e.target.value)}
+            value={country}
+            onChange={(e) => setCountry([e.target.value])}
           >
             <option value='US'>American</option>
             <option value='GB'>British</option>

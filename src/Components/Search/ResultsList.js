@@ -7,7 +7,7 @@ function ResultsList() {
   const { recipeList } = useRecipesContext();
   return (
     <>
-      {/* <div className='page-title'>Your results</div> */}
+      <div className='page-title'>{recipeList && 'Search results'}</div>
       <Row className='results' xs={1} sm={2} md={3} lg={5}>
         {recipeList.map((rec) => {
           return <RecipeCard recipe={rec} />;

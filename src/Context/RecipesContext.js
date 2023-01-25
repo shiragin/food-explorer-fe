@@ -24,32 +24,7 @@ export default function RecipesContextProvider({ children }) {
     }
   }
 
-  const [recipeList, setRecipeList] = useState([
-    {
-      strMeal: 'Mediterranean Pasta Salad',
-      strMealThumb:
-        'https://www.themealdb.com/images/media/meals/wvqpwt1468339226.jpg',
-      idMeal: '52777',
-    },
-    {
-      strMeal: 'Mee goreng mamak',
-      strMealThumb:
-        'https://www.themealdb.com/images/media/meals/xquakq1619787532.jpg',
-      idMeal: '53048',
-    },
-    {
-      strMeal: 'Nasi lemak',
-      strMealThumb:
-        'https://www.themealdb.com/images/media/meals/wai9bw1619788844.jpg',
-      idMeal: '53051',
-    },
-    {
-      strMeal: 'Portuguese fish stew (Caldeirada de peixe)',
-      strMealThumb:
-        'https://www.themealdb.com/images/media/meals/do7zps1614349775.jpg',
-      idMeal: '53045',
-    },
-  ]);
+  const [recipeList, setRecipeList] = useState([]);
 
   return (
     <RecipesContext.Provider

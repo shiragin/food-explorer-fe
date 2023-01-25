@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
-export default function BasicSearch() {
-  const [name, setName] = useState('');
+export default function BasicSearch({ name, setName }) {
   return (
     <Form>
       <Form.Group className='mb-3' controlId='formBasicName'>
