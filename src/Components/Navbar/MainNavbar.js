@@ -37,6 +37,16 @@ export default function MainNavbar() {
             <LinkContainer to='/search'>
               <Nav.Link>Search</Nav.Link>
             </LinkContainer>
+            {isLogin && (
+              <LinkContainer to='/myProfile'>
+                <Nav.Link>Profile</Nav.Link>
+              </LinkContainer>
+            )}
+            {isLogin && (
+              <LinkContainer to='/myRecipes'>
+                <Nav.Link>Recipes</Nav.Link>
+              </LinkContainer>
+            )}
             {isLogin ? (
               <Button
                 className='login'
@@ -55,20 +65,6 @@ export default function MainNavbar() {
               >
                 Log In
               </Button>
-            )}
-            {isLogin && (
-              <NavDropdown title='User' id='basic-nav-dropdown'>
-                <NavDropdown.Item>
-                  <LinkContainer to='/myProfile'>
-                    <Nav.Link>My profile</Nav.Link>
-                  </LinkContainer>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <LinkContainer to='/myRecipes'>
-                    <Nav.Link>My Recipes</Nav.Link>
-                  </LinkContainer>
-                </NavDropdown.Item>
-              </NavDropdown>
             )}
           </Nav>
         </Navbar.Collapse>

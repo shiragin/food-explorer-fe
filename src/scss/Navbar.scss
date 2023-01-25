@@ -29,6 +29,7 @@
       align-items: center;
       justify-content: flex-end;
       width: 100%;
+      gap: 1rem;
     }
   }
   //   // width: auto;
@@ -39,7 +40,7 @@
 
   button.login {
     background-color: $primary-color;
-    margin: 0 1rem;
+    // margin: 0 1rem;
     box-shadow: none;
     border-color: #07814a;
 

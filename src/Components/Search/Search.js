@@ -12,6 +12,7 @@ export default function Search() {
   const [country, setCountry] = useState([]);
 
   async function searchHandler(e) {
+    console.log(country, name);
     const res = await getRecipesByCode(country);
     console.log(res);
     setRecipeList(res);
