@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 // import WorldMap from './world-countries-sans-antarctica.json';
+import { useRecipesContext } from '../../Context/RecipesContext';
 import ContMap from './world-continents.json';
-import Africa from './africa.json';
+// import Africa from './africa.json';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
-// const geoUrl = ContMap;
+const geoUrl = ContMap;
 
 export default function MapChart() {
   const [content, setContent] = useState('');
-  const [geoUrl, setGeoUrl] = useState(ContMap);
+  // const [geoUrl, setGeoUrl] = useState(ContMap);
+
+  const { getRecipesByCode } = useRecipesContext();
 
   function getCountryCodes(continent) {
     switch (continent) {
@@ -38,9 +41,10 @@ export default function MapChart() {
     }
   }
 
-  function MapClickHandler(continent) {
+  async function MapClickHandler(continent) {
     const countries = getCountryCodes(continent);
-    console.log(countries);
+    const res = await getRecipesByCode(countries);
+    // console.log(res);
   }
 
   const renderTooltip = (props) => (
