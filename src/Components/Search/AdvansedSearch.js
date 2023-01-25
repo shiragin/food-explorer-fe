@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
-import axios from "axios";
 
 export default function AdvancedSearch() {
     const [type, setType] = useState({
@@ -10,8 +9,6 @@ export default function AdvancedSearch() {
     const onSearchTypeChange = () => {
         setIsAdvancedSearch(!isAdvancedSearch);
     }
-
-
     return (
         <Form>
             <Form.Group className="mb-3 mt-3" controlId="formBasicCheckbox">
