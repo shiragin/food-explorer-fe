@@ -26,13 +26,9 @@ function Home() {
       <MapChart />
       <div className='container'>
         <h1 className='title'>Explore the world through food.</h1>
-        <Row xs={1} md={3} lg={5}>
+        <Row xs={1} sm={2} md={3} lg={5}>
           {recipeList.map((rec) => {
-            return (
-              <Col>
-                <RecipeCard recipe={rec} />
-              </Col>
-            );
+            return <RecipeCard recipe={rec} />;
           })}
         </Row>
       </div>
