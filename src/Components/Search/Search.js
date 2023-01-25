@@ -11,7 +11,7 @@ export default function Search() {
   };
 
   return (
-    <div className='container search-container'>
+    <>
       <div className='page-title'>Find your next favourite meal</div>
       <Form>
         <BasicSearch />
@@ -26,6 +26,6 @@ export default function Search() {
           Search
         </Button>
       </Form>
-    </div>
+    </>
   );
 }

@@ -6,6 +6,7 @@ import './scss/App.scss';
 import MainNavbar from './Components/Navbar/MainNavbar';
 import Search from './Components/Search/Search';
 import RecipePage from './Components/RecipePage/RecipePage';
+import Results from './Pages/Results';
 
 function App() {
   return (
@@ -15,11 +16,9 @@ function App() {
           <MainNavbar />
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path="/search" element={<Search />} />
+            <Route path='/search' element={<Results />} />
             <Route path='/RecipePage/:id' element={<RecipePage />} />
-
           </Routes>
-
         </BrowserRouter>
       </RecipesContextProvider>
     </UserContextProvider>

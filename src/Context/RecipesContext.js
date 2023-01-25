@@ -17,7 +17,7 @@ export default function RecipesContextProvider({ children }) {
       });
 
       if (res?.data?.ok) {
-        return res.data;
+        return res.data.data;
       }
     } catch (err) {
       console.error(err);

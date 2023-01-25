@@ -10,6 +10,7 @@ import LoginModal from "../Model's/LoginModal";
 import SignUpModal from "../Model's/SignUpModal";
 import Switch from '../Switch/Switch';
 import '../../scss/Navbar.scss';
+import { BiWorld } from 'react-icons/bi';
 
 export default function MainNavbar() {
   const { showLoginModel, setShowLoginModel, isLogin } = useUserContext();
@@ -24,7 +25,9 @@ export default function MainNavbar() {
       <Container className='nav'>
         <LinkContainer to='/'>
           <Navbar.Brand className='logo'>
-            Food <span>Explorer</span>
+            Food
+            <BiWorld />
+            <span>Explorer</span>
           </Navbar.Brand>
         </LinkContainer>
         {/* <div> */}
