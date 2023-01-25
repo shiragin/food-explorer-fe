@@ -4,28 +4,36 @@ import Form from 'react-bootstrap/Form';
 import AdvancedSearch from './AdvansedSearch';
 import BasicSearch from './BasicSearch';
 import '../../scss/Search.scss';
+import axios from 'axios';
 
 export default function Search() {
-  const onSearch = async () => {
-    console.log('HHHHH');
-  };
+    const [name, setName] = useState("");
+    const [type, setType] = useState({
+        type: ""
+    });
+    const onSearch = async () => {
+        const res = await axios.post(
+            "http://localhost:8080/countries", { name, type }
+        )
 
-  return (
-    <>
-      <div className='page-title'>Find your next favourite meal</div>
-      <Form>
-        <BasicSearch />
-        <AdvancedSearch />
+    }
 
-        <Button
-          variant='primary'
-          type='button'
-          className='search-button'
-          onClick={onSearch}
-        >
-          Search
-        </Button>
-      </Form>
-    </>
-  );
+    return (
+        <>
+            <div className='page-title'>Find your next favourite meal</div>
+            <Form>
+                <BasicSearch name={name} setName={setName} />
+                <AdvancedSearch type={type} setType={setType} />
+
+                <Button
+                    variant='primary'
+                    type='button'
+                    className='search-button'
+                    onClick={onSearch}
+                >
+                    Search
+                </Button>
+            </Form>
+        </>
+    )
 }
