@@ -43,15 +43,14 @@ export default function MainNavbar() {
             <LinkContainer to="/search">
               <Nav.Link>Search</Nav.Link>
             </LinkContainer>
-            
-            <NavDropdown title="User" id="basic-nav-dropdown">
+            {isLogin && <NavDropdown title="User" id="basic-nav-dropdown">
               <LinkContainer to="/myProfile">
                 <Nav.Link>My profile</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/myRecipes">
                 <Nav.Link>My Recipes</Nav.Link>
               </LinkContainer>
-            </NavDropdown>
+            </NavDropdown>}
           </Nav>
           <Modal
             show={showLoginModel}
