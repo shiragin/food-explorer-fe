@@ -5,6 +5,7 @@ import Home from './Pages/Home';
 import './scss/App.scss';
 import MainNavbar from './Components/Navbar/MainNavbar';
 import Search from './Components/Search/Search';
+import RecipePage from './Components/RecipePage/RecipePage';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path="/search" element={<Search />} />
+            <Route path='/RecipePage/:id' element={<RecipePage />} />
+
           </Routes>
 
         </BrowserRouter>

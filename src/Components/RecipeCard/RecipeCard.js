@@ -1,8 +1,10 @@
 import axios from "axios";
 import { Button, Card, Col } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
 export default function RecipeCard({ recipe }) {
-    console.log(recipe);
+  const nav = useNavigate();
+
 
 //     <Container>
 //     <Row xs={1} md={3} lg={5}>
@@ -12,6 +14,10 @@ export default function RecipeCard({ recipe }) {
 //       })}
 //     </Row>
 //   </Container>
+
+const handleSeeMore = () => {
+  nav(`/RecipePage/${recipe.idMeal}`);
+};
     
   return (
     <Col>
@@ -32,9 +38,7 @@ export default function RecipeCard({ recipe }) {
           <Card.Footer>
             <Button
               variant="primary"
-              onClick={() => {
-                console.log(recipe.idMeal);
-              }}
+              onClick={handleSeeMore}
             >
               See More
             </Button>{" "}
