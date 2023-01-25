@@ -3,7 +3,7 @@ import UserContextProvider from './Context/UserContext';
 import RecipesContextProvider from './Context/RecipesContext';
 import Home from './Pages/Home';
 import Navbar from './Components/Navbar/Navbar';
-import './App.css';
+import './scss/App.scss';
 
 function App() {
   return (
