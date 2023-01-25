@@ -32,9 +32,11 @@ function Home() {
   };
 
   return (
-    <div className='container'>
+    <div className='main-container'>
       <MapChart />
-      <h1 className='title'>Explore the world through food.</h1>
+      <div className='container'>
+        <h1 className='title'>Explore the world through food.</h1>
+      </div>
     </div>
   );
 }

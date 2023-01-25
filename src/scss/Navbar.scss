@@ -16,15 +16,22 @@
   .navbar-collapse {
     align-items: center;
     justify-content: flex-end;
-    width: auto;
-
     .navbar-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
     }
   }
+  //   // width: auto;
+
+  //   .navbar-nav {
+  //   }
+  // }
 
   button.login {
     background-color: $primary-color;
-    margin-left: 1rem;
+    margin: 0 1rem;
     box-shadow: none;
     border-color: #07814a;
 
