@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/search' element={<Results />} />
-            <Route path='/RecipePage/:id' element={<RecipePage />} />
+            <Route path='/recipePage/:id' element={<RecipePage />} />
           </Routes>
         </BrowserRouter>
       </RecipesContextProvider>

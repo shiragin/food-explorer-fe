@@ -1,8 +1,11 @@
+import { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import { useParams } from "react-router";
 import "./RecipePage.css";
+import axios from 'axios';
 
 export default function RecipePage() {
+  const [dish, setDish] = useState({})
   const recipe = {
     idMeal: "52923",
     strMeal: "Canadian Butter Tarts",
@@ -11,8 +14,7 @@ export default function RecipePage() {
     strArea: "Canadian",
     strInstructions:
       "Preheat the oven to fan 170C/ conventional 190C/gas 5. Roll out the pastry on a lightly floured surface so it\u2019s slightly thinner than straight from the pack. Then cut out 18-20 rounds with a 7.5cm fluted cutter, re-rolling the trimmings. Use the rounds to line two deep 12-hole tart tins (not muffin tins). If you only have a regular-sized, 12-hole tart tin you will be able to make a few more slightly shallower tarts.\r\nBeat the eggs in a large bowl and combine with the rest of the ingredients except the walnuts. Tip this mixture into a pan and stir continuously for 3-4 minutes until the butter melts, and the mixture bubbles and starts to thicken. It should be thick enough to coat the back of a wooden spoon. Don\u2019t overcook, and be sure to stir all the time as the mixture can easily burn. Remove from the heat and stir in the nuts.\r\nSpoon the filling into the unbaked tart shells so it\u2019s level with the pastry. Bake for 15-18 minutes until set and pale golden. Leave in the tin to cool for a few minutes before lifting out on to a wire rack. Serve warm or cold.",
-    strMealThumb:
-      "https://www.themealdb.com/images/media/meals/wpputp1511812960.jpg",
+
     strTags: "Speciality,Snack,Desert,Pudding",
     strYoutube: "https://www.youtube.com/watch?v=WUpaOGghOdo",
     strIngredient1: "Shortcrust Pastry",
@@ -60,7 +62,22 @@ export default function RecipePage() {
     strCreativeCommonsConfirmed: null,
     dateModified: null,
   };
+
   const { id } = useParams();
+  console.log(id, 'hey look at me')
+  useEffect(() => {
+    const getDish = async () => {
+      const res = await axios.get(`http://localhost:8080/recipes/${id}`)
+      setDish(res.data.data[0])
+
+    }
+    getDish()
+  }, [])
+  useEffect(() => {
+    console.log(dish)
+    console.log(dish, 'heyyyyyy')
+
+  }, [dish])
   console.log(recipe);
 
   return (
@@ -70,7 +87,7 @@ export default function RecipePage() {
       </Card.Header>
       <Card.Body className="recipePageBody">
         <div className="MediaPart">
-          <img src={recipe.strMealThumb} alt="Food Pic" width={"100%"} />
+          <img src={dish?.strMealThumb} alt="Food Pic" width={"100%"} />
         </div>
         <div className="TextPart">
           <a href={recipe.strYoutube}>Youtube Instructions Link</a>
