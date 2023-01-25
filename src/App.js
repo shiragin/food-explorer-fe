@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import UserContextProvider from './context/UserContext';
-import RecipesContextProvider from './context/RecipesContext';
+import UserContextProvider from './Context/UserContext';
+import RecipesContextProvider from './Context/RecipesContext';
+import Home from './Pages/Home';
+import Navbar from './Components/Navbar/Navbar';
 import './App.css';
 
 function App() {
