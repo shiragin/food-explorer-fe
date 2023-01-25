@@ -8,13 +8,11 @@ export function useRecipesContext() {
 }
 
 export default function RecipesContextProvider({ children }) {
-
-
-
-
-
+  const [recipeList, setRecipeList] = useState([]);
 
   return (
-    <RecipesContext.Provider value={{}}>{children}</RecipesContext.Provider>
+    <RecipesContext.Provider value={{ recipeList, setRecipeList }}>
+      {children}
+    </RecipesContext.Provider>
   );
 }
