@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useUserContext } from "../../Context/UserContext";
-import "./StarGradecss.css";
-=======
+import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useUserContext } from '../../Context/UserContext';
 import '../../scss/RecipePage.scss';
->>>>>>> recipe-page
 
 export default function StarGrade({ id }) {
   const [showV, setShowV] = useState(false);
@@ -29,7 +24,7 @@ export default function StarGrade({ id }) {
       .then((res) => {
         if (res.data.ok) {
           setShowV(false);
-          logUser.savedrecipes=res.data.meals
+          logUser.savedrecipes = res.data.meals;
         }
       });
   };

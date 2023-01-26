@@ -31,12 +31,12 @@ export default function RecipePage() {
     <div className='recipe-page'>
       <img
         className='main-img'
-        src={recipe.strMealThumb}
+        src={recipe?.strMealThumb}
         alt='Food Pic'
         width={'100%'}
       />
       <div className='container'>
-        <div className='page-title'>{recipe.strMeal}</div>
+        <div className='page-title'>{recipe?.strMeal}</div>
         <StarGrade id={id} />
         <div className='page-info'>
           <div>
@@ -55,13 +55,13 @@ export default function RecipePage() {
           </div>
         </div>
         <div className='page-ing'>
-          {recipe?.strIngredient.map((ing, index) => (
+          {recipe?.strIngredient?.map((ing, index) => (
             <div>
               <MdRestaurantMenu /> {ing} ({recipe.strMeasure[index].trim()})
             </div>
           ))}
         </div>
-        <div className='page-inst'>{recipe.strInstructions}</div>
+        <div className='page-inst'>{recipe?.strInstructions}</div>
       </div>
     </div>
   );
