@@ -25,10 +25,17 @@ export default function RecipesContextProvider({ children }) {
   }
 
   const [recipeList, setRecipeList] = useState([]);
+  const [searched, setSearched] = useState('');
 
   return (
     <RecipesContext.Provider
-      value={{ recipeList, setRecipeList, getRecipesByCode }}
+      value={{
+        recipeList,
+        setRecipeList,
+        getRecipesByCode,
+        searched,
+        setSearched,
+      }}
     >
       {children}
     </RecipesContext.Provider>

@@ -8,7 +8,8 @@ import '../../scss/Search.scss';
 import axios from 'axios';
 
 export default function Search() {
-  const { getRecipesByCode, setRecipeList } = useRecipesContext();
+  const { getRecipesByCode, setRecipeList, searched, setSearched } =
+    useRecipesContext();
   const [name, setName] = useState('');
   const [country, setCountry] = useState([]);
 

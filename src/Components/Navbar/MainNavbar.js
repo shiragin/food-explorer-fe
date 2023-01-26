@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Button, Modal } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import { LinkContainer } from "react-router-bootstrap";
-import { useUserContext } from "../../Context/UserContext";
+import React, { useEffect, useState } from 'react';
+import { Button, Modal } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import { LinkContainer } from 'react-router-bootstrap';
+import { useUserContext } from '../../Context/UserContext';
 import LoginModal from "../Model's/LoginModal";
 import SignUpModal from "../Model's/SignUpModal";
-import Switch from "../Switch/Switch";
-import "../../scss/Navbar.scss";
-import { BiWorld } from "react-icons/bi";
+import Switch from '../Switch/Switch';
+import '../../scss/Navbar.scss';
+import { BiWorld } from 'react-icons/bi';
 
 export default function MainNavbar() {
   const {
@@ -17,6 +17,7 @@ export default function MainNavbar() {
     setShowLoginModel,
     isLogin,
     setIsLogin,
+    logUser,
     setLogUser,
     token,
   } = useUserContext();
@@ -38,6 +39,10 @@ export default function MainNavbar() {
 
   const [showSignUp, setShowSignUp] = useState(false);
 
+  useEffect(() => {
+    setLogUser(JSON.parse(localStorage.getItem('user')));
+  }, []);
+
   const handleClose = () => setShowLoginModel(false);
   const handleLogOut = () => {
     setIsLogin(false);
@@ -46,20 +51,19 @@ export default function MainNavbar() {
   };
 
   return (
-    <Navbar bg="light" expand="sm">
-      <Container className="nav">
-        <LinkContainer to="/">
-          <Navbar.Brand className="logo">
+    <Navbar bg='light' expand='sm'>
+      <Container className='nav'>
+        <LinkContainer to='/'>
+          <Navbar.Brand className='logo'>
             Food
             <BiWorld />
             <span>Explorer</span>
           </Navbar.Brand>
         </LinkContainer>
-        {/* <div> */}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <LinkContainer to="/search">
+        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar.Collapse id='basic-navbar-nav'>
+          <Nav className='me-auto'>
+            <LinkContainer to='/search'>
               <Nav.Link>Search</Nav.Link>
             </LinkContainer>
 
@@ -70,16 +74,16 @@ export default function MainNavbar() {
             )}
             {isLogin ? (
               <Button
-                className="login"
-                variant="primary"
+                className='login'
+                variant='primary'
                 onClick={handleLogOut}
               >
                 Logout
               </Button>
             ) : (
               <Button
-                variant="primary"
-                className="login"
+                variant='primary'
+                className='login'
                 onClick={() => {
                   setShowLoginModel(true);
                 }}
@@ -94,17 +98,17 @@ export default function MainNavbar() {
           onHide={handleClose}
           keyboard={false}
           centered={true}
-          backdrop="static"
+          backdrop='static'
         >
           <Switch
-            falseName={"Log In"}
-            trueName={"Sign Up"}
+            falseName={'Log In'}
+            trueName={'Sign Up'}
             state={showSignUp}
             setState={setShowSignUp}
           />
 
           {showSignUp ? <SignUpModal /> : <LoginModal />}
-        </Modal>{" "}
+        </Modal>{' '}
         {/* </div> */}
       </Container>
     </Navbar>

@@ -1,0 +1,29 @@
+@import 'variables';
+
+.container.my-recipes {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .page-text.review {
+    margin-top: 4rem;
+    font-size: 1.6rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  img {
+    height: 300px;
+    width: 300px;
+    border-radius: 30%;
+    margin-right: 3rem;
+  }
+
+  div {
+    width: 40%;
+    text-align: left;
+  }
+}
