@@ -3,6 +3,8 @@ import axios from 'axios';
 import { TbWorldDownload } from 'react-icons/tb';
 import { BiCategory } from 'react-icons/bi';
 import { useParams } from 'react-router';
+import { MdRestaurantMenu } from 'react-icons/md';
+import StarGrade from '../StarGrade/StarGrade';
 import '../../scss/RecipePage.scss';
 
 export default function RecipePage() {
@@ -35,6 +37,7 @@ export default function RecipePage() {
       />
       <div className='container'>
         <div className='page-title'>{recipe.strMeal}</div>
+        <StarGrade id={id} />
         <div className='page-info'>
           <div>
             <span>
@@ -51,6 +54,14 @@ export default function RecipePage() {
             {recipe.strCategory}
           </div>
         </div>
+        <div className='page-ing'>
+          {recipe?.strIngredient.map((ing, index) => (
+            <div>
+              <MdRestaurantMenu /> {ing} ({recipe.strMeasure[index].trim()})
+            </div>
+          ))}
+        </div>
+        <div className='page-inst'>{recipe.strInstructions}</div>
       </div>
     </div>
   );

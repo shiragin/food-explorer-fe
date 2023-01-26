@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import "./StarGradecss.css";
+import { useEffect, useState } from 'react';
+import '../../scss/RecipePage.scss';
 
 export default function StarGrade({ dbRating }) {
   const [showV, setShowV] = useState(false);
@@ -16,27 +16,28 @@ export default function StarGrade({ dbRating }) {
   };
 
   return (
-    <div className="star-rating">
+    <div className='star-rating'>
       {[...Array(5)].map((star, index) => {
         index += 1;
         return (
           <button
-            type="button"
+            type='button'
             key={index}
             className={
-              index <= ((rating && hover) || hover) ? "Fill" : "NoFill"
+              index <= ((rating && hover) || hover) ? 'Fill' : 'NoFill'
             }
             onClick={() => {
-              setRating(index);setShowV(true)
+              setRating(index);
+              setShowV(true);
             }}
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(rating)}
           >
-            <span className="star">&#9733;</span>
+            <span className='star'>&#9733;</span>
           </button>
         );
       })}
-      {showV&&<button onClick={handaleRating}>&#x2713;</button>}
+      {showV && <button onClick={handaleRating}>&#x2713;</button>}
     </div>
   );
 }
