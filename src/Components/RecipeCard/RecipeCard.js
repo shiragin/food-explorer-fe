@@ -15,7 +15,7 @@ export default function RecipeCard({ recipe }) {
           <Button
             variant="primary"
             onClick={() => {
-              nav(`/RecipePage/${recipe.idMeal}`);
+              nav(`/recipe/${recipe.idMeal}`);
             }}
           >
             See More
