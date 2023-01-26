@@ -4,6 +4,7 @@ import { TbWorldDownload } from 'react-icons/tb';
 import { BiCategory } from 'react-icons/bi';
 import { useParams } from 'react-router';
 import '../../scss/RecipePage.scss';
+import StarGrade from '../StarGrade/StarGrade';
 
 export default function RecipePage() {
   const { id } = useParams();
@@ -33,7 +34,8 @@ export default function RecipePage() {
         alt='Food Pic'
         width={'100%'}
       />
-      <div className='container'>
+      <div className='container'>            <StarGrade />
+
         <div className='page-title'>{recipe.strMeal}</div>
         <div className='page-info'>
           <div>

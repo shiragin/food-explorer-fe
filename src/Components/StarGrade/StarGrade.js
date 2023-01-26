@@ -1,18 +1,32 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { useUserContext } from "../../Context/UserContext";
 import "./StarGradecss.css";
 
-export default function StarGrade({ dbRating }) {
+export default function StarGrade({ id }) {
   const [showV, setShowV] = useState(false);
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
-
+  const { logUser } = useUserContext();
   useEffect(() => {
-    setRating(dbRating);
-    setHover(dbRating);
+    setRating();
+    setHover();
   }, []);
 
   const handaleRating = () => {
-    console.log(rating);
+    const infoSend = {
+      value: rating,
+      bol: true,
+    };
+
+    axios
+      .put(`http://localhost:8080/recipes/rate/${id}`, infoSend)
+      .then((res) => {
+        if (res.data.ok) {
+          setShowV(false);
+          logUser.savedrecipes=res.data.meals
+        }
+      });
   };
 
   return (
@@ -27,7 +41,8 @@ export default function StarGrade({ dbRating }) {
               index <= ((rating && hover) || hover) ? "Fill" : "NoFill"
             }
             onClick={() => {
-              setRating(index);setShowV(true)
+              setRating(index);
+              setShowV(true);
             }}
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(rating)}
@@ -36,7 +51,7 @@ export default function StarGrade({ dbRating }) {
           </button>
         );
       })}
-      {showV&&<button onClick={handaleRating}>&#x2713;</button>}
+      {showV && <button onClick={handaleRating}>&#x2713;</button>}
     </div>
   );
 }
