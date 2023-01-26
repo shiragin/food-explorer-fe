@@ -1,5 +1,6 @@
 import { Card } from "react-bootstrap";
 import { useParams } from "react-router";
+import StarGrade from "../StarGrade/StarGrade";
 import "./RecipePage.css";
 
 export default function RecipePage() {
@@ -181,7 +182,7 @@ export default function RecipePage() {
         </div>
       </Card.Body>
       <Card.Footer>
-        Tags - {recipe.strTags} <a href={recipe.strSource}> Recipe source</a>
+        Tags - {recipe.strTags} <a href={recipe.strSource}> Recipe source</a> rating <StarGrade dbRating={3} />
       </Card.Footer>
     </Card>
   );
