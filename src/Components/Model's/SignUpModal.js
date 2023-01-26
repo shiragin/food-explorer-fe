@@ -42,6 +42,7 @@ export default function SignUpModal() {
         setLogUser(res.data.user);
         setToken(res.data.token);
         localStorage.setItem('token', res.data.token);
+        localStorage.setItem('user', JSON.stringify(res.data.user));
         setIsLogin(true);
         handleClose();
         setLoad(false);

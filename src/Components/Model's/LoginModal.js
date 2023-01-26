@@ -41,9 +41,11 @@ export default function LoginModal() {
       if (res.data.token) {
         setIsLogin(true);
         setLogUser(res.data.user);
+        console.log(res.data.user);
         setToken(res.data.token);
         setLoad(false);
         localStorage.setItem('token', res.data.token);
+        localStorage.setItem('user', JSON.stringify(res.data.user));
 
         handleClose();
       }

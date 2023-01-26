@@ -61,6 +61,7 @@ export default function MapChart() {
   return (
     <>
       <ComposableMap
+        height={370}
         projection='geoMercator'
         projectionConfig={{
           center: [0, 0],
