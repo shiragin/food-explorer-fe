@@ -7,7 +7,7 @@ export function useUserContext() {
 
 export default function UserContextProvider({ children }) {
   const [load, setLoad] = useState(false);
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem('token')||"");
 
   const [showLoginModel, setShowLoginModel] = useState(false);
   const [isLogin, setIsLogin] = useState(false);

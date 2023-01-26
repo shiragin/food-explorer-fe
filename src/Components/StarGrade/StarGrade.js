@@ -12,6 +12,7 @@ export default function StarGrade({ id }) {
     setRating();
     setHover();
   }, []);
+  
 
   const handaleRating = () => {
     const infoSend = {

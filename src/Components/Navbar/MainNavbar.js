@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -12,8 +12,24 @@ import "../../scss/Navbar.scss";
 import { BiWorld } from "react-icons/bi";
 
 export default function MainNavbar() {
-  const { showLoginModel, setShowLoginModel, isLogin, setIsLogin ,setLogUser} =
+  const { showLoginModel, setShowLoginModel, isLogin, setIsLogin ,setLogUser,token} =
     useUserContext();
+
+  // useEffect(() => {
+  //   axios.post("http://localhost:8080/users", {
+  //     headers: { authorization: `Bearer ${token}` },
+  //   }).then((res)=>{
+  //     if (res.data.ok) {
+  //       setLogUser(res.data.user)
+  //     }
+  //   });
+  // }, []);
+  useEffect(() => {
+   if (token) {
+    setIsLogin(true)
+   }
+  }, []);
+
 
   const [showSignUp, setShowSignUp] = useState(false);
 
