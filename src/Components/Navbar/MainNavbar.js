@@ -12,8 +12,14 @@ import "../../scss/Navbar.scss";
 import { BiWorld } from "react-icons/bi";
 
 export default function MainNavbar() {
-  const { showLoginModel, setShowLoginModel, isLogin, setIsLogin ,setLogUser,token} =
-    useUserContext();
+  const {
+    showLoginModel,
+    setShowLoginModel,
+    isLogin,
+    setIsLogin,
+    setLogUser,
+    token,
+  } = useUserContext();
 
   // useEffect(() => {
   //   axios.post("http://localhost:8080/users", {
@@ -25,11 +31,10 @@ export default function MainNavbar() {
   //   });
   // }, []);
   useEffect(() => {
-   if (token) {
-    setIsLogin(true)
-   }
+    if (token) {
+      setIsLogin(true);
+    }
   }, []);
-
 
   const [showSignUp, setShowSignUp] = useState(false);
 
@@ -37,7 +42,7 @@ export default function MainNavbar() {
   const handleLogOut = () => {
     setIsLogin(false);
     setLogUser({});
-    localStorage.clear()
+    localStorage.clear();
   };
 
   return (
@@ -57,13 +62,9 @@ export default function MainNavbar() {
             <LinkContainer to="/search">
               <Nav.Link>Search</Nav.Link>
             </LinkContainer>
+
             {isLogin && (
-              <LinkContainer to='/my-profile'>
-                <Nav.Link>Profile</Nav.Link>
-              </LinkContainer>
-            )}
-            {isLogin && (
-              <LinkContainer to='/my-recipes'>
+              <LinkContainer to="/my-recipes">
                 <Nav.Link>Recipes</Nav.Link>
               </LinkContainer>
             )}
