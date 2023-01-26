@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
 import "./StarGradecss.css";
 
-export default function StarGrade({dbRating}) {
+export default function StarGrade({ dbRating }) {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
 
-  
-useEffect(()=>{
+  useEffect(() => {
     setRating(dbRating);
-    setHover(dbRating)
-},[])
+    setHover(dbRating);
+  }, []);
 
-
-const handaleRating = (rate)=>{
-
-}
+  const handaleRating = (rate) => {
+    
+  };
 
   return (
     <div className="star-rating">
@@ -24,9 +22,12 @@ const handaleRating = (rate)=>{
           <button
             type="button"
             key={index}
-            className={index <= ((rating && hover) || hover) ? "Fill" : "NoFill"}
+            className={
+              index <= ((rating && hover) || hover) ? "Fill" : "NoFill"
+            }
             onClick={() => {
-              setRating(index);handaleRating(index)
+              setRating(index);
+              handaleRating(index);
             }}
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(rating)}
