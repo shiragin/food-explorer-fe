@@ -10,8 +10,8 @@ export default function StarGrade({ dbRating }) {
     setHover(dbRating);
   }, []);
 
-  const handaleRating = (rate) => {
-    
+  const handaleRating = () => {
+    console.log(rating);
   };
 
   return (
@@ -27,7 +27,6 @@ export default function StarGrade({ dbRating }) {
             }
             onClick={() => {
               setRating(index);
-              handaleRating(index);
             }}
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(rating)}
@@ -36,6 +35,7 @@ export default function StarGrade({ dbRating }) {
           </button>
         );
       })}
+      <button onClick={handaleRating}>&#x2713;</button>
     </div>
   );
 }
