@@ -6,6 +6,7 @@ import { useRecipesContext } from "../../Context/RecipesContext";
 
 export default function RecipeCard({ recipe }) {
   const nav = useNavigate();
+  
   return (
     <Col>
       <Card>

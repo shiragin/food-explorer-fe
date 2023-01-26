@@ -66,13 +66,9 @@ export default function MainNavbar() {
             <LinkContainer to='/search'>
               <Nav.Link>Search</Nav.Link>
             </LinkContainer>
+
             {isLogin && (
-              <LinkContainer to='/my-profile'>
-                <Nav.Link>Profile</Nav.Link>
-              </LinkContainer>
-            )}
-            {isLogin && (
-              <LinkContainer to='/my-recipes'>
+              <LinkContainer to="/my-recipes">
                 <Nav.Link>Recipes</Nav.Link>
               </LinkContainer>
             )}
