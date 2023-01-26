@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./StarGradecss.css";
 
 export default function StarGrade({ dbRating }) {
+  const [showV, setShowV] = useState(false);
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
 
@@ -26,7 +27,7 @@ export default function StarGrade({ dbRating }) {
               index <= ((rating && hover) || hover) ? "Fill" : "NoFill"
             }
             onClick={() => {
-              setRating(index);
+              setRating(index);setShowV(true)
             }}
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(rating)}
@@ -35,7 +36,7 @@ export default function StarGrade({ dbRating }) {
           </button>
         );
       })}
-      <button onClick={handaleRating}>&#x2713;</button>
+      {showV&&<button onClick={handaleRating}>&#x2713;</button>}
     </div>
   );
 }
