@@ -48,7 +48,7 @@ export default function RecipePage() {
         alt='Food Pic'
         width={'100%'}
       />
-      <div className='container'>
+      <div className='container w-75'>
         <div className='page-title'>{recipe?.strMeal}</div>
         <StarGrade id={id} idmeal={recipe?._id} />
         <div className='page-info'>
